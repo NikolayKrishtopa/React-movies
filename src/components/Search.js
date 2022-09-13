@@ -24,7 +24,7 @@ export default function Search(props) {
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
           />
-          <label for="search">Search</label>
+          <label htmlFor="search">Search</label>
         </form>
       </div>
     </div>

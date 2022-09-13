@@ -14,8 +14,8 @@ class Api {
     }
   }
 
-  search(searchData) {
-    return fetch(`${this._baseUrl}&s=${searchData}`).then((res) =>
+  search(searchData, page = 1) {
+    return fetch(`${this._baseUrl}&s=${searchData}&page=${page}`).then((res) =>
       this._getResponseData(res, 'загрузке данных с сервера')
     )
   }

@@ -53,6 +53,16 @@ body {
   font-size: 20px;
 }
 
-.searchLine {
-  border-bottom: 1px solid grey;
+.input-field {
+  margin-left: 20px;
+}
+
+.typeFilter {
+  display: block;
+  position: relative;
+  height: 30px;
+  padding: 3px;
+  margin: 0 30px;
+  width: 200px;
+  border: 1px solid rgb(214, 208, 208);
 }
