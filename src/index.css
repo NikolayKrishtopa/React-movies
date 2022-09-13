@@ -13,6 +13,7 @@ body {
 }
 
 .content {
+  position: relative;
   padding: 20px 30px;
   min-height: calc(100vh - 64px - 70px);
 }
@@ -25,4 +26,29 @@ body {
 
 .card {
   box-shadow: 5px 2px 10px rgb(193, 184, 184);
+}
+
+.preloader {
+  padding: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader__spinner {
+  width: 10%;
+}
+
+.preloader__title {
+  color: white;
+  font-size: 20px;
 }

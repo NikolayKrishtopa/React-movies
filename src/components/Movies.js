@@ -1,15 +1,8 @@
-import api from '../utils/api'
-import { useState, useEffect } from 'react'
 import MovieCard from './MovieCard'
 
 export default function Movies(props) {
-  const [movies, setMovies] = useState([])
+  const { movies } = props
 
-  useEffect(() => {
-    api.search('matrix').then((res) => setMovies(res.Search))
-  }, [])
-
-  console.log(movies)
   return (
     <div className="movies">
       {movies.map((movie) => (
