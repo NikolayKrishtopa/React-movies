@@ -17,7 +17,7 @@ Most of CSS styles were taken from [materializeCSS library](https://materializec
 
 As backend application I've used free API [omdbAPI](http://www.omdbapi.com/)
 
-The page deployment may be seen by the following [link](###).
+The page deployment may be seen by the following [link](https://nikolaykrishtopa.github.io/react-movies/).
 
 If you'd like to contact me please refer to the following [link](mailto:nikolay.krishtopa@gmail.com). I would be glad to revieve any feedback or suggestions.
 
