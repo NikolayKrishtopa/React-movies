@@ -11,10 +11,11 @@ function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [search, setSearch] = useState('matrix')
-  const [isSearchSubmitted, setIsSearchSubmitted] = useState('')
+  const [searchSubmitted, setSearchSubmitted] = useState('')
   const [category, setCategory] = useState('')
   const [page, setPage] = useState(1)
   const [pageQty, setPageQty] = useState(1)
+  const [searchAlert, setSearchAlert] = useState('')
 
   useEffect(() => {
     {
@@ -30,11 +31,23 @@ function App() {
           setIsLoading(false)
         })
     }
-  }, [isSearchSubmitted, page, category])
+  }, [searchSubmitted, page, category])
 
   function handleChangeCategory(category) {
     setCategory(category)
     setPage(1)
+  }
+
+  function handleSearchChange(e) {
+    setSearchAlert('')
+    setSearch(e.target.value)
+  }
+
+  function handleSubmitSearch() {
+    setPage(1)
+    searchSubmitted === search
+      ? setSearchAlert('значение совпадает с текущим')
+      : setSearchSubmitted(search)
   }
 
   return (
@@ -46,8 +59,9 @@ function App() {
           <Header />
           <Search
             search={search}
-            onSearchChange={setSearch}
-            onSubmit={setIsSearchSubmitted}
+            onSearchChange={handleSearchChange}
+            onSubmit={handleSubmitSearch}
+            searchAlert={searchAlert}
           />
           <TypeFilter value={category} onChangeValue={handleChangeCategory} />
           <Main

@@ -76,3 +76,16 @@ body {
 .author {
   font-size: 12px;
 }
+
+.search {
+  position: relative;
+}
+
+.search__error-message {
+  color: red;
+  position: absolute;
+  font-size: 14px;
+  line-height: 1;
+  bottom: 0px;
+  left: 30px;
+}

@@ -1,14 +1,14 @@
 import Movies from './Movies'
 
 export default function Main(props) {
-  const { pageQty, page, onChangePage } = props
+  const { pageQty, page, onChangePage, movies } = props
   const pages = []
   for (let i = 1; i <= pageQty; i++) {
     pages.push(i)
   }
   return (
     <div className="content">
-      {pageQty !== 1 && (
+      {pageQty > 0 && pageQty !== 1 && (
         <ul className="pagination">
           <li
             className="waves-effect"
@@ -34,7 +34,7 @@ export default function Main(props) {
           </li>
         </ul>
       )}
-      <Movies {...props} />
+      {movies ? <Movies {...props} /> : <h2>Nothing found</h2>}
     </div>
   )
 }
