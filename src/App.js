@@ -10,7 +10,7 @@ import TypeFilter from './components/TypeFilter'
 function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [search, setSearch] = useState('matrix')
+  const [search, setSearch] = useState('matt')
   const [searchSubmitted, setSearchSubmitted] = useState('')
   const [category, setCategory] = useState('')
   const [page, setPage] = useState(1)
@@ -32,6 +32,10 @@ function App() {
         })
     }
   }, [searchSubmitted, page, category])
+
+  useEffect(() => {
+    setSearch('')
+  }, [])
 
   function handleChangeCategory(category) {
     setCategory(category)
