@@ -29,6 +29,7 @@ function App() {
         .catch((err) => console.log(err))
         .finally(() => {
           setIsLoading(false)
+          setSearchAlert('')
         })
     }
   }, [searchSubmitted, page, category])
@@ -48,10 +49,13 @@ function App() {
   }
 
   function handleSubmitSearch() {
-    setPage(1)
-    searchSubmitted === search
-      ? setSearchAlert('значение совпадает с текущим')
-      : setSearchSubmitted(search)
+    if (searchSubmitted === search) {
+      setSearchAlert('значение совпадает с текущим')
+      return
+    } else {
+      setSearchSubmitted(search)
+      setPage(1)
+    }
   }
 
   return (

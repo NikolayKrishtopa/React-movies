@@ -5,6 +5,7 @@ const config = {
     baseUrl: `http://www.omdbapi.com/?apikey=${API_KEY}`,
     headers: {
       'Content-Type': 'application/json',
+      referrer: 'http://www.omdbapi.com/',
     },
   },
 }
