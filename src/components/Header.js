@@ -3,7 +3,7 @@ export default function Header() {
     <nav>
       <div className="nav-wrapper green darken-1 header">
         <a href="#" className="brand-logo">
-          React-movies
+          React-movies <span className="author">by Nikolay Krishtopa</span>
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>

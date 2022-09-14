@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 export default function Search(props) {
   const { search, onSearchChange, onSubmit } = props
 
-  useEffect(() => {
-    onSearchChange('')
-  }, [])
+  // useEffect(() => {
+  //   onSearchChange('')
+  // }, [])
 
   return (
     <div className="row">
@@ -13,18 +13,19 @@ export default function Search(props) {
         <form
           className="input-field"
           onSubmit={(e) => {
-            onSubmit(search)
             e.preventDefault()
+            onSubmit(search)
           }}
         >
           <input
             id="search"
+            placeholder="Search"
             type="search"
             className="validate"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
           />
-          <label htmlFor="search">Search</label>
+          {/* <label htmlFor="search">Search</label> */}
         </form>
       </div>
     </div>

@@ -12,7 +12,12 @@ body {
   padding: 0 2rem;
 }
 
+.pagination li.active {
+  background-color: #43a047;
+}
+
 .content {
+  text-align: center;
   position: relative;
   padding: 20px 30px;
   min-height: calc(100vh - 64px - 70px);
@@ -55,6 +60,7 @@ body {
 
 .input-field {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 .typeFilter {
@@ -65,4 +71,8 @@ body {
   margin: 0 30px;
   width: 200px;
   border: 1px solid rgb(214, 208, 208);
+}
+
+.author {
+  font-size: 12px;
 }

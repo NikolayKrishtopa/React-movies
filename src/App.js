@@ -10,20 +10,32 @@ import TypeFilter from './components/TypeFilter'
 function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [search, setSearch] = useState('matt')
+  const [search, setSearch] = useState('matrix')
   const [isSearchSubmitted, setIsSearchSubmitted] = useState('')
   const [category, setCategory] = useState('')
+  const [page, setPage] = useState(1)
+  const [pageQty, setPageQty] = useState(1)
 
   useEffect(() => {
-    setIsLoading(true)
-    api
-      .search(search)
-      .then((res) => {
-        setMovies(res.Search)
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false))
-  }, [isSearchSubmitted])
+    {
+      setIsLoading(true)
+      api
+        .search(search, page, category)
+        .then((res) => {
+          setMovies(res.Search)
+          setPageQty(Math.ceil(res.totalResults / 10))
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setIsLoading(false)
+        })
+    }
+  }, [isSearchSubmitted, page, category])
+
+  function handleChangeCategory(category) {
+    setCategory(category)
+    setPage(1)
+  }
 
   return (
     <>
@@ -37,8 +49,14 @@ function App() {
             onSearchChange={setSearch}
             onSubmit={setIsSearchSubmitted}
           />
-          <TypeFilter value={category} onChangeValue={setCategory} />
-          <Main movies={movies} category={category} />
+          <TypeFilter value={category} onChangeValue={handleChangeCategory} />
+          <Main
+            movies={movies}
+            category={category}
+            pageQty={pageQty}
+            page={page}
+            onChangePage={setPage}
+          />
           <Footer />
         </div>
       )}
