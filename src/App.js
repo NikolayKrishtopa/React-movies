@@ -10,8 +10,8 @@ import TypeFilter from './components/TypeFilter'
 function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [search, setSearch] = useState('matt')
-  const [searchSubmitted, setSearchSubmitted] = useState('')
+  const [search, setSearch] = useState('')
+  const [searchSubmitted, setSearchSubmitted] = useState('matt')
   const [category, setCategory] = useState('')
   const [page, setPage] = useState(1)
   const [pageQty, setPageQty] = useState(1)
@@ -21,10 +21,10 @@ function App() {
     {
       setIsLoading(true)
       api
-        .search(search, page, category)
+        .search(searchSubmitted, page, category)
         .then((res) => {
           setMovies(res.Search)
-          setPageQty(Math.ceil(res.totalResults / 10))
+          setPageQty(search ? Math.ceil(res.totalResults / 10) : 1)
         })
         .catch((err) => console.log(err))
         .finally(() => {
@@ -33,11 +33,6 @@ function App() {
         })
     }
   }, [searchSubmitted, page, category])
-
-  useEffect(() => {
-    setSearch('')
-    setPageQty(1)
-  }, [])
 
   function handleChangeCategory(category) {
     setCategory(category)
@@ -51,7 +46,7 @@ function App() {
 
   function handleSubmitSearch() {
     if (searchSubmitted === search) {
-      setSearchAlert('значение совпадает с текущим')
+      setSearchAlert('This value match the current search result')
       return
     } else {
       setSearchSubmitted(search)
