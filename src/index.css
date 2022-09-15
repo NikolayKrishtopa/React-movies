@@ -20,7 +20,7 @@ body {
   text-align: center;
   position: relative;
   padding: 20px 30px;
-  min-height: calc(100vh - 64px - 70px);
+  min-height: calc(100vh - 64px - 70px - 106px);
 }
 
 .movies {
