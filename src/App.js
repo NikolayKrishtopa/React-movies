@@ -36,6 +36,7 @@ function App() {
 
   useEffect(() => {
     setSearch('')
+    setPageQty(1)
   }, [])
 
   function handleChangeCategory(category) {
