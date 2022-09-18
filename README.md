@@ -2,7 +2,7 @@
 
 # React-movies
 
-This is a small application to get some training of working with backend APIs as well as to get some React.js coding practice.
+This small application is my implementaion of the project from react training by [Mikhail Nepomnyashchiy](https://github.com/michey85) written by me to get some training of working with backend APIs as well as to get some React.js coding practice.
 
 This application allows user to get some movies/games cards and filter them by category as needed. I also incorporated pagination functional in to this page.
 
